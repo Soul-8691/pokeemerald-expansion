@@ -830,3 +830,27 @@ const struct Tileset gTileset_UnionRoom =
     .metatileAttributes = gMetatileAttributes_UnionRoom,
     .callback = NULL,
 };
+
+const struct Tileset gTileset_OrangeIslandsPrimary =
+{
+    .isCompressed = TRUE,
+    .isSecondary = FALSE,
+    .tiles = gTilesetTiles_OrangeIslandsPrimary,
+    .palettes = gTilesetPalettes_OrangeIslandsPrimary,
+    .metatiles = gMetatiles_OrangeIslandsPrimary,
+    .metatileAttributes = gMetatileAttributes_OrangeIslandsPrimary,
+    .callback = NULL,
+    .numTiles = NUM_TILES_IN_PRIMARY_FRLG,
+};
+
+const struct Tileset gTileset_KinnowIsland =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_KinnowIsland,
+    .palettes = gTilesetPalettes_KinnowIsland,
+    .metatiles = gMetatiles_KinnowIsland,
+    .metatileAttributes = gMetatileAttributes_KinnowIsland,
+    .callback = NULL,
+    .dontUsePal7 = TRUE,
+};
