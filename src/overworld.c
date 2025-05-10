@@ -840,6 +840,7 @@ bool8 SetDiveWarpDive(u16 x, u16 y)
 
 void LoadMapFromCameraTransition(u8 mapGroup, u8 mapNum)
 {
+    u32 numPrimaryPals;
     SetWarpDestination(mapGroup, mapNum, WARP_ID_NONE, -1, -1);
 
     // Dont transition map music between BF Outside West/East
@@ -871,7 +872,8 @@ if (I_VS_SEEKER_CHARGING != 0)
     CopySecondaryTilesetToVramUsingHeap(gMapHeader.mapLayout);
     LoadSecondaryTilesetPalette(gMapHeader.mapLayout, TRUE); // skip copying to Faded, gamma shift will take care of it
 
-    ApplyWeatherColorMapToPals(NUM_PALS_IN_PRIMARY, NUM_PALS_TOTAL - NUM_PALS_IN_PRIMARY); // palettes [6,12]
+    numPrimaryPals = NUM_PALS_IN_PRIMARY_EMERALD + gMapHeader.mapLayout->secondaryTileset->dontUsePal7;
+    ApplyWeatherColorMapToPals(numPrimaryPals, NUM_PALS_TOTAL - numPrimaryPals); // palettes [6,12]
 
     InitSecondaryTilesetAnimation();
     UpdateLocationHistoryForRoamer();

@@ -62,6 +62,10 @@ enum
 // for constructing large tiles, such as the Battle Pike's curtain tile.
 #define METATILE_ROW_WIDTH 8
 
+// For the secondary tileset, this field is used for swapping where the game
+// loads palette 7 from (if TRUE, the palette is loaded from the primary)
+#define dontUsePal7 numTiles
+
 typedef void (*TilesetCB)(void);
 
 struct Tileset
@@ -76,6 +80,7 @@ struct Tileset
     /*0x0C*/ const u16 *metatiles;
     /*0x10*/ const u32 *metatileAttributes;
     /*0x14*/ TilesetCB callback;
+    u16 numTiles;
 };
 
 struct MapLayout
